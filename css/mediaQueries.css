@@ -7,10 +7,38 @@
         width: 100%;
         height: auto;
     }
+    /*aBOUT  */
+    
     .about img{
-        width: 100%;
-        height: auto;
+        
+        display: none;
+        
     }
+
+    .about-info{
+        grid-column: 10/10;
+        padding: 3em;
+     }
+     
+     .about-info h2{
+         font-size: 2em;
+         color:#181818;
+     }
+     .divider{
+         height: 4px;
+         width: 60px;
+         background-color: #181818;
+         margin-top: 5px;
+         margin-bottom: 1em;
+     }
+     
+     .about p{
+         margin-bottom: 1em;
+         font-size: 1.5em;
+     
+     }
+
+/*aBOUT  */
     .navbar{
         position: relative;
     }
