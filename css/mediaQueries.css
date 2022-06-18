@@ -1,11 +1,12 @@
 @media only screen and (max-width: 600px){
-    .main{
+    .general{
         width: 100%;
     }
     
     .main img{
         width: 100%;
         height: auto;
+        
     }
     /*aBOUT  */
     
@@ -16,7 +17,7 @@
     }
 
     .about-info{
-        grid-column: 10/10;
+        grid-column: 10/10; /* ocupa todo el espacio del ancho*/
         padding: 3em;
      }
      
@@ -39,6 +40,7 @@
      }
 
 /*aBOUT  */
+
     .navbar{
         position: relative;
     }
@@ -129,3 +131,48 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+/* cards ------------------*/
+
+
+
+
+@media screen and (max-width: 736px) {
+    .portfolio .container {
+      width: 100%;
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .card{
+        position: absolute;
+        left: 5%;
+         
+    }
+    .card2{
+        position: absolute;
+        left: 55%;
+        
+    }
+    .card3{
+        position: absolute;
+        top: 110%;
+        left: 5%;
+    }
+    .card4{
+        position: absolute;
+        top: 110%;
+        left: 55%;
+        
+    }
+    .proyect-details-content{
+        display: none;
+    }
+
+    .portfolio{
+        width: 100vw;
+        height:830px;
+        
+        margin-bottom: 50px;
+     }
+    
+ }
