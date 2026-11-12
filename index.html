@@ -541,6 +541,31 @@ Core strengths: Incident Resolution · Root-Cause Analysis · SQL Server Trouble
 
   .feed-row:hover .watch{color:var(--accent);}
 
+  .feed-pager{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  margin-top:18px;
+}
+.feed-pager button{
+  background:transparent;
+  color:var(--text-dim);
+  border:1px solid var(--line-strong);
+  border-radius:var(--radius);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12.5px;
+  padding:9px 14px;
+  cursor:pointer;
+  transition:color .18s ease, border-color .18s ease;
+}
+.feed-pager button:hover:not(:disabled){
+  color:var(--accent);
+  border-color:var(--accent);
+}
+.feed-pager button:disabled{opacity:0.35;cursor:default;}
+.feed-pager .page{font-size:12px;color:var(--text-faint);}
+
   .platform-links{
     display:flex;
     gap:14px;
@@ -864,27 +889,12 @@ This application demonstrates fundamental C++ memory management techniques by ut
       </div>
       <p style="color:var(--text-dim);font-size:15px;max-width:60ch;margin:-14px 0 8px;">I record what I solve and learn day to day: from databases to wireless networks and software-defined radio.</p>
 
-      <div class="feed">
-        <div class="feed-row">
-          <span class="ch mono">YOUTUBE</span>
-          <h3>Hacking WiFi Networks</h3>
-          <a class="watch" href="https://www.youtube.com/watch?v=HAm7Psr3sTk" target="_blank" rel="noopener">watch video →</a>
-        </div>
-        <div class="feed-row">
-          <span class="ch mono">YOUTUBE</span>
-          <h3>Sniffing Aircraft Signals with RTL‑SDR</h3>
-          <a class="watch" href="https://www.youtube.com/watch?v=TJnP0xROCms" target="_blank" rel="noopener">watch video →</a>
-        </div>
-        <div class="feed-row">
-          <span class="ch mono">YOUTUBE</span>
-          <h3>Voting System in C# with SQL Server</h3>
-          <a class="watch" href="https://www.youtube.com/watch?v=w6YWT95cV6w" target="_blank" rel="noopener">watch video →</a>
-        </div>
-        <div class="feed-row">
-          <span class="ch mono">YOUTUBE</span>
-          <h3>Live Chat Without an Internet Connection Using ESP 32 and LoRa (RA-02)</h3>
-          <a class="watch" href="https://youtu.be/hLj4imr6CqA" target="_blank" rel="noopener">watch video →</a>
-        </div>
+     <div class="feed" id="videoFeed" aria-live="polite"></div>
+
+      <div class="feed-pager">
+        <button type="button" id="feedPrev" aria-label="Previous videos">← prev</button>
+        <span class="page mono" id="feedPage">1 / 2</span>
+        <button type="button" id="feedNext" aria-label="Next videos">next →</button>
       </div>
 
       <div class="platform-links">
@@ -1007,6 +1017,46 @@ This application demonstrates fundamental C++ memory management techniques by ut
     });
   }, {threshold:0.4});
   bars.forEach(b => barObserver.observe(b));
+
+  const videos = [
+  { title: "Centinela: tus alertas, claves y secretos no salen de tu teléfono", url: "https://www.youtube.com/watch?v=a-c9JYs61mQ" },
+  { title: "LoRa Chat Vulnerability Demo: Message Sniffing + Spoofing / Injection Attack (ESP32 + TTGO)", url: "https://www.youtube.com/watch?v=ACzMhOtsMYQ" },
+  { title: "Hacking WiFi Networks", url: "https://www.youtube.com/watch?v=HAm7Psr3sTk" },
+  { title: "Sniffing Aircraft Signals with RTL‑SDR", url: "https://www.youtube.com/watch?v=TJnP0xROCms" },
+  { title: "Voting System in C# with SQL Server", url: "https://www.youtube.com/watch?v=w6YWT95cV6w" },
+  { title: "Live Chat Without an Internet Connection Using ESP 32 and LoRa (RA-02)", url: "https://youtu.be/hLj4imr6CqA" }
+];
+
+const perPage = 3;
+let page = 0;
+const feed = document.getElementById('videoFeed');
+const pageLabel = document.getElementById('feedPage');
+const prevBtn = document.getElementById('feedPrev');
+const nextBtn = document.getElementById('feedNext');
+const pageCount = Math.max(1, Math.ceil(videos.length / perPage));
+
+function renderFeed(){
+  const start = page * perPage;
+  const slice = videos.slice(start, start + perPage);
+  feed.innerHTML = slice.map(function(video){
+    return '<div class="feed-row">' +
+      '<span class="ch mono">YOUTUBE</span>' +
+      '<h3>' + video.title + '</h3>' +
+      '<a class="watch" href="' + video.url + '" target="_blank" rel="noopener">watch video →</a>' +
+    '</div>';
+  }).join('');
+  pageLabel.textContent = (page + 1) + ' / ' + pageCount;
+  prevBtn.disabled = page === 0;
+  nextBtn.disabled = page >= pageCount - 1;
+}
+
+prevBtn.addEventListener('click', function(){
+  if(page > 0){ page--; renderFeed(); }
+});
+nextBtn.addEventListener('click', function(){
+  if(page < pageCount - 1){ page++; renderFeed(); }
+});
+renderFeed();
 </script>
 
 </body>
