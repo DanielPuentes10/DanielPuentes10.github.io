@@ -146,6 +146,8 @@
   .modal.active{display:flex;}
   .modal-content{max-width:90%;max-height:90%;border:1px solid var(--line);border-radius:4px;}
   .modal-close{position:absolute;top:20px;right:28px;color:#fff;font-size:28px;cursor:pointer;background:none;border:none;}
+  details summary::-webkit-details-marker { display: none; }
+  details summary { list-style: none; }
 </style>
 </head>
 <body>
@@ -260,13 +262,17 @@
         <div class="project">
           <div class="ptag mono">PowerShell · SRE / Support</div>
           <h3>LocalAgents — Windows 11 Automation Suite</h3>
-          <p>Local operations suite for Windows 11 (PowerShell 5.1). Covers disk health, temporary cleanup, system health, Windows Update, daily optimization, and support bundles. Structured JSON logging, dry-run by default, severity-based exit codes (0/1/2), and Task Scheduler integration. Reduced daily manual review from ~12 min to under 40 s in dry-run mode.</p>
-          <div style="margin:14px 0 10px;font-size:12px;color:var(--accent);letter-spacing:0.04em;">SRE / Support focused</div>
-          <p style="font-size:13px;color:var(--text-dim);margin:0 0 14px;">
-            Real dry-run of <code>SystemHealthReport.ps1</code>. Exit code <b>1</b> (Warning). 
-            <code>NlaSvc</code> correctly classified as Warning. 
-            <a href="#" onclick="openModal('images/localagents-run.png'); return false;" style="color:var(--accent);">View screenshot →</a>
-          </p>
+          <p>Local operations suite for Windows 11 (PowerShell 5.1). Covers disk health, temporary cleanup, system health, Windows Update, daily optimization, and support bundles. Structured JSON logging, dry-run by default, severity-based exit codes (0/1/2), and Task Scheduler integration.</p>
+        
+          <details style="margin:10px 0 14px;">
+            <summary style="cursor:pointer;color:var(--accent);font-size:13px;list-style:none;">SRE / Support focused · View evidence</summary>
+            <p style="font-size:13px;color:var(--text-dim);margin:10px 0 0;">
+              Real dry-run of <code>SystemHealthReport.ps1</code>. Exit code <b>1</b> (Warning).  
+              <code>NlaSvc</code> correctly classified as Warning.  
+              <a href="#" onclick="openModal('images/localagents-run.png'); return false;" style="color:var(--accent);">View screenshot →</a>
+            </p>
+          </details>
+        
           <a class="plink" href="https://github.com/DanielPuentes10/windows-local-agents" target="_blank" rel="noopener">View repository</a>
           <a class="plink" href="https://github.com/DanielPuentes10/windows-local-agents#execution-evidence" target="_blank" rel="noopener" style="margin-left:16px;">View operational README</a>
         </div>
