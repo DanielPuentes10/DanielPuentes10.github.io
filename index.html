@@ -14,48 +14,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0a1220;
-    --bg-alt:#0e1830;
-    --surface:#111f3a;
-    --surface-2:#0d1a30;
-    --line:rgba(210,225,255,0.10);
-    --line-strong:rgba(210,225,255,0.18);
-    --text:#e8edf6;
-    --text-dim:#8ea0bd;
-    --text-faint:#5c6c88;
-    --accent:#4fe0d1;
-    --accent-dim:#2f8f88;
-    --amber:#f2a93c;
-    --radius:3px;
-    --max:1080px;
+    --bg:#0a1220; --bg-alt:#0e1830; --surface:#111f3a; --surface-2:#0d1a30;
+    --line:rgba(210,225,255,0.10); --line-strong:rgba(210,225,255,0.18);
+    --text:#e8edf6; --text-dim:#8ea0bd; --text-faint:#5c6c88;
+    --accent:#4fe0d1; --accent-dim:#2f8f88; --amber:#f2a93c;
+    --radius:3px; --max:1080px;
   }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  *{box-sizing:border-box;} html{scroll-behavior:smooth;}
   ::selection{background:var(--accent);color:#04140f;}
-  body{
-    margin:0;
-    background:
-      radial-gradient(1200px 700px at 85% -10%, rgba(79,224,209,0.07), transparent 60%),
-      radial-gradient(900px 500px at -10% 20%, rgba(242,169,60,0.05), transparent 55%),
-      var(--bg);
-    color:var(--text);
-    font-family:'Inter', system-ui, sans-serif;
-    font-size:16px;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
+  body{margin:0;background:radial-gradient(1200px 700px at 85% -10%, rgba(79,224,209,0.07), transparent 60%),radial-gradient(900px 500px at -10% 20%, rgba(242,169,60,0.05), transparent 55%),var(--bg);color:var(--text);font-family:'Inter', system-ui, sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;}
   h1,h2,h3,.display{font-family:'Space Grotesk', sans-serif;font-weight:600;margin:0;letter-spacing:-0.01em;}
   .mono{font-family:'IBM Plex Mono', monospace;}
-  a{color:inherit;text-decoration:none;}
-  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;} img{max-width:100%;display:block;}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
   @media (max-width:640px){.wrap{padding:0 20px;}}
-  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
-    outline:2px solid var(--accent);outline-offset:3px;
-  }
-  @media (prefers-reduced-motion: reduce){
-    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
-  }
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){*{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}}
   header.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(10,18,32,0.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
   .nav-inner{max-width:var(--max);margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;}
   .brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk', sans-serif;font-weight:600;font-size:15px;}
@@ -81,8 +55,7 @@
   .btn:hover{transform:translateY(-1px);}
   .btn-primary{background:var(--accent);color:#04140f;border-color:var(--accent);}
   .btn-primary:hover{background:#69e8db;}
-  .btn-ghost{color:var(--text);}
-  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+  .btn-ghost{color:var(--text);} .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
   .scope{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px 20px;}
   .scope-head{display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:var(--text-faint);margin-bottom:10px;}
   .scope-head .live{display:flex;align-items:center;gap:6px;color:var(--accent);}
@@ -141,6 +114,11 @@
   .feed-row h3{font-size:15px;font-weight:500;font-family:'Inter',sans-serif;color:var(--text);}
   .feed-row .watch{font-size:12.5px;color:var(--text-dim);white-space:nowrap;transition:color .18s ease;}
   .feed-row:hover .watch{color:var(--accent);}
+  .feed-pager{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:18px;}
+  .feed-pager button{background:transparent;color:var(--text-dim);border:1px solid var(--line-strong);border-radius:var(--radius);font-family:'IBM Plex Mono',monospace;font-size:12.5px;padding:9px 14px;cursor:pointer;transition:color .18s ease, border-color .18s ease;}
+  .feed-pager button:hover:not(:disabled){color:var(--accent);border-color:var(--accent);}
+  .feed-pager button:disabled{opacity:0.35;cursor:default;}
+  .feed-pager .page{font-size:12px;color:var(--text-faint);}
   .platform-links{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap;}
   .platform-links a{font-size:13px;color:var(--text-dim);padding:9px 16px;border:1px solid var(--line-strong);border-radius:var(--radius);transition:color .18s ease,border-color .18s ease;}
   .platform-links a:hover{color:var(--accent);border-color:var(--accent);}
@@ -150,9 +128,7 @@
   .terminal-bar{display:flex;gap:6px;padding:11px 14px;border-bottom:1px solid var(--line);}
   .terminal-bar span{width:9px;height:9px;border-radius:50%;background:var(--line-strong);}
   .terminal-body{padding:20px 22px 24px;font-size:13.5px;}
-  .terminal-body .prompt{color:var(--accent-dim);}
-  .terminal-body .cmd{color:var(--text);}
-  .terminal-body .out{color:var(--text-dim);margin:6px 0 16px;}
+  .terminal-body .prompt{color:var(--accent-dim);} .terminal-body .cmd{color:var(--text);} .terminal-body .out{color:var(--text-dim);margin:6px 0 16px;}
   form{display:flex;flex-direction:column;gap:14px;}
   label{font-size:12px;color:var(--text-faint);}
   input, textarea{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--radius);color:var(--text);font-family:'IBM Plex Mono',monospace;font-size:13.5px;padding:11px 12px;width:100%;margin-top:5px;}
@@ -165,6 +141,11 @@
   footer{padding:32px 0 44px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--text-faint);}
   .reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease, transform .6s ease;}
   .reveal.in{opacity:1;transform:translateY(0);}
+  /* Modal */
+  .modal{display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;}
+  .modal.active{display:flex;}
+  .modal-content{max-width:90%;max-height:90%;border:1px solid var(--line);border-radius:4px;}
+  .modal-close{position:absolute;top:20px;right:28px;color:#fff;font-size:28px;cursor:pointer;background:none;border:none;}
 </style>
 </head>
 <body>
@@ -198,19 +179,11 @@
         </div>
       </div>
       <div class="scope">
-        <div class="scope-head">
-          <span>CH1 · SIGNAL MONITOR</span>
-          <span class="live"><span class="pulse-dot" style="animation-duration:1.4s;"></span> LIVE</span>
-        </div>
+        <div class="scope-head"><span>CH1 · SIGNAL MONITOR</span><span class="live"><span class="pulse-dot" style="animation-duration:1.4s;"></span> LIVE</span></div>
         <svg viewBox="0 0 400 140" preserveAspectRatio="none" aria-hidden="true">
           <g class="scope-grid">
-            <line x1="0" y1="35" x2="400" y2="35"></line>
-            <line x1="0" y1="70" x2="400" y2="70"></line>
-            <line x1="0" y1="105" x2="400" y2="105"></line>
-            <line x1="80" y1="0" x2="80" y2="140"></line>
-            <line x1="160" y1="0" x2="160" y2="140"></line>
-            <line x1="240" y1="0" x2="240" y2="140"></line>
-            <line x1="320" y1="0" x2="320" y2="140"></line>
+            <line x1="0" y1="35" x2="400" y2="35"></line><line x1="0" y1="70" x2="400" y2="70"></line><line x1="0" y1="105" x2="400" y2="105"></line>
+            <line x1="80" y1="0" x2="80" y2="140"></line><line x1="160" y1="0" x2="160" y2="140"></line><line x1="240" y1="0" x2="240" y2="140"></line><line x1="320" y1="0" x2="320" y2="140"></line>
           </g>
           <path class="scope-path" d="M0,70 C10,70 15,20 25,20 C35,20 38,110 48,110 C58,110 62,70 72,70 L100,70 C110,70 114,15 124,15 C134,15 138,125 148,125 C158,125 162,70 172,70 L210,70 C218,70 222,40 230,40 C238,40 242,100 250,100 C258,100 262,70 270,70 L300,70 C308,70 312,25 320,25 C328,25 332,115 340,115 C348,115 352,70 360,70 L400,70"></path>
         </svg>
@@ -238,14 +211,14 @@
       <div class="log">
         <div class="about-copy">
           <p>I'm an <b style="color:var(--text);">Application Support Analyst</b>, focused on tracing incidents to their root cause: application, database, and infrastructure layers, not just the symptom. I work daily with C#, .NET, SQL Server, and AWS, and manage Windows servers with PowerShell.</p>
-          <p>I'm a quiet person, and that's helped me concentrate on programming: learning new things and not giving up during the hardest moments. I really enjoy the challenges programming throws at me to become a better professional.</p>
-          <p>When I'm not resolving tickets, I'm tinkering with software-defined radios, probing how networks break so I understand how to protect them, or playing guitar. All of it ends up recorded for <b style="color:var(--text);">@DaniTechDev</b> and <b style="color:var(--text);">@trabajosdeprogramacion</b>.</p>
+          <p>I specialize in end-to-end root-cause analysis—investigating incidents seamlessly across code, stored procedures, <b>IIS web servers</b>, and <b>AWS CloudWatch</b> metrics. With an 80% first-contact resolution rate, I thrive on dissecting complex system anomalies, refactoring <b>SQL</b> performance bottlenecks, and shipping reliable code fixes through structured <b>Testing - Staging - Production</b> lifecycles.</p>
+          <p>When I’m not investigating application incidents, I’m exploring software-defined radio, auditing wireless networks to strengthen system defenses, or playing guitar. I document my experiments and technical insights on <b style="color:var(--text);">@DaniTechDev</b> and <b style="color:var(--text);">@trabajosdeprogramacion</b>.</p>
         </div>
         <div class="log-entries">
           <div class="log-entry"><time class="mono">CURRENT</time><p><b>Application Support Analyst</b> — incidents across C#, .NET, SQL Server, and AWS; troubleshooting the app, DB, and infra layers.</p></div>
-          <div class="log-entry"><time class="mono">INFRA</time><p><b>Windows Server</b> administration, automation with <b>PowerShell</b>, day-to-day work in <b>Jira</b> under <b>Scrum</b>.</p></div>
-          <div class="log-entry"><time class="mono">ROOTS</time><p>Started out building CRUDs, triggers, and stored procedures in <b>SQL Server</b>, and exploring web development with <b>Node.js</b>.</p></div>
-          <div class="log-entry"><time class="mono">OFF THE CLOCK</time><p>Wireless networks, signal sniffing with <b>RTL‑SDR</b>, and educational content on how it all works under the hood.</p></div>
+          <div class="log-entry"><time class="mono">INFRA</time><p><b>Windows Server</b> administration, <b>PowerShell</b> automation, <b>AWS CloudWatch</b> performance monitoring, day-to-day work in <b>Jira</b> under <b>Scrum</b>.</p></div>
+          <div class="log-entry"><time class="mono">ROOTS</time><p>Started out in <b>backend development</b>, designing SQL Server databases, writing stored procedures, and building web apps with <b>C#</b>.</p></div>
+          <div class="log-entry"><time class="mono">OFF THE CLOCK</time><p>Wireless network <b>auditing</b>, RF signal analysis with RTL-SDR, and creating tech content explaining low-level systems under the hood.</p></div>
         </div>
       </div>
     </div>
@@ -258,13 +231,14 @@
           <div class="bar-row"><span class="name">C# / .NET</span><div class="bar-track"><div class="bar-fill" data-level="90"></div></div></div>
           <div class="bar-row"><span class="name">SQL Server</span><div class="bar-track"><div class="bar-fill" data-level="88"></div></div></div>
           <div class="bar-row"><span class="name">Visual Basic</span><div class="bar-track"><div class="bar-fill" data-level="70"></div></div></div>
-          <div class="bar-row"><span class="name">Node.js / EJS</span><div class="bar-track"><div class="bar-fill" data-level="60"></div></div></div>
+          <div class="bar-row"><span class="name">Bash</span><div class="bar-track"><div class="bar-fill" data-level="60"></div></div></div>
         </div>
         <div class="stack-card"><h3>Infrastructure</h3>
           <div class="bar-row"><span class="name">Windows Server</span><div class="bar-track"><div class="bar-fill" data-level="85"></div></div></div>
           <div class="bar-row"><span class="name">AWS</span><div class="bar-track"><div class="bar-fill" data-level="65"></div></div></div>
           <div class="bar-row"><span class="name">PowerShell</span><div class="bar-track"><div class="bar-fill" data-level="75"></div></div></div>
           <div class="bar-row"><span class="name">Linux</span><div class="bar-track"><div class="bar-fill" data-level="55"></div></div></div>
+          <div class="bar-row"><span class="name">VMWare</span><div class="bar-track"><div class="bar-fill" data-level="80"></div></div></div>
         </div>
         <div class="stack-card"><h3>Teamwork</h3>
           <div class="bar-row"><span class="name">Jira</span><div class="bar-track"><div class="bar-fill" data-level="80"></div></div></div>
@@ -272,7 +246,7 @@
         </div>
         <div class="stack-card"><h3>Technical curiosity</h3>
           <div class="bar-row"><span class="name">Networking / WiFi</span><div class="bar-track"><div class="bar-fill" data-level="70"></div></div></div>
-          <div class="bar-row"><span class="name">RTL‑SDR</span><div class="bar-track"><div class="bar-fill" data-level="65"></div></div></div>
+          <div class="bar-row"><span class="name">Wireshark</span><div class="bar-track"><div class="bar-fill" data-level="62"></div></div></div>
         </div>
       </div>
     </div>
@@ -288,8 +262,11 @@
           <h3>LocalAgents — Windows 11 Automation Suite</h3>
           <p>Local operations suite for Windows 11 (PowerShell 5.1). Covers disk health, temporary cleanup, system health, Windows Update, daily optimization, and support bundles. Structured JSON logging, dry-run by default, severity-based exit codes (0/1/2), and Task Scheduler integration. Reduced daily manual review from ~12 min to under 40 s in dry-run mode.</p>
           <div style="margin:14px 0 10px;font-size:12px;color:var(--accent);letter-spacing:0.04em;">SRE / Support focused</div>
-          <img src="images/localagents-run.png" alt="SystemHealthReport dry-run showing Warning status and exit code 1" style="width:100%;border:1px solid var(--line);border-radius:4px;margin:8px 0 12px;">
-          <p style="font-size:13px;color:var(--text-dim);margin:0 0 14px;">Real dry-run of <code>SystemHealthReport.ps1 -EventHours 48</code>. Exit code <b>1</b> (Warning). No Critical findings. <code>NlaSvc</code> correctly classified as Warning. JSON report and JSONL log written with <code>runId</code>.</p>
+          <p style="font-size:13px;color:var(--text-dim);margin:0 0 14px;">
+            Real dry-run of <code>SystemHealthReport.ps1</code>. Exit code <b>1</b> (Warning). 
+            <code>NlaSvc</code> correctly classified as Warning. 
+            <a href="#" onclick="openModal('images/localagents-run.png'); return false;" style="color:var(--accent);">View screenshot →</a>
+          </p>
           <a class="plink" href="https://github.com/DanielPuentes10/windows-local-agents" target="_blank" rel="noopener">View repository</a>
           <a class="plink" href="https://github.com/DanielPuentes10/windows-local-agents#execution-evidence" target="_blank" rel="noopener" style="margin-left:16px;">View operational README</a>
         </div>
@@ -308,7 +285,7 @@
         <div class="project">
           <div class="ptag mono">EJS · MYSQL</div>
           <h3>Node.js & MySQL CRUD Application</h3>
-          <p>A full-stack Web Application built with Node.js, Express, and MySQL for complete Create, Read, Update, and Delete operations.</p>
+          <p>A full-stack Web Application built with Node.js, Express, and MySQL for complete Create, Read, Update, and Delete operations</p>
           <a class="plink" href="https://github.com/DanielPuentes10/Crud_Node_mysql" target="_blank" rel="noopener">View repository</a>
         </div>
         <div class="project">
@@ -330,11 +307,11 @@
     <div class="wrap">
       <div class="section-head"><h2>What I share</h2><span class="tag mono">@DaniTechDev · @trabajosdeprogramacion</span></div>
       <p style="color:var(--text-dim);font-size:15px;max-width:60ch;margin:-14px 0 8px;">I record what I solve and learn day to day: from databases to wireless networks and software-defined radio.</p>
-      <div class="feed">
-        <div class="feed-row"><span class="ch mono">YOUTUBE</span><h3>Hacking WiFi Networks</h3><a class="watch" href="https://www.youtube.com/watch?v=HAm7Psr3sTk" target="_blank" rel="noopener">watch video →</a></div>
-        <div class="feed-row"><span class="ch mono">YOUTUBE</span><h3>Sniffing Aircraft Signals with RTL‑SDR</h3><a class="watch" href="https://www.youtube.com/watch?v=TJnP0xROCms" target="_blank" rel="noopener">watch video →</a></div>
-        <div class="feed-row"><span class="ch mono">YOUTUBE</span><h3>Voting System in C# with SQL Server</h3><a class="watch" href="https://www.youtube.com/watch?v=w6YWT95cV6w" target="_blank" rel="noopener">watch video →</a></div>
-        <div class="feed-row"><span class="ch mono">YOUTUBE</span><h3>C++ Struct Explained</h3><a class="watch" href="https://www.youtube.com/watch?v=LTRO53Ks-eA" target="_blank" rel="noopener">watch video →</a></div>
+      <div class="feed" id="videoFeed" aria-live="polite"></div>
+      <div class="feed-pager">
+        <button type="button" id="feedPrev" aria-label="Previous videos">← prev</button>
+        <span class="page mono" id="feedPage">1 / 2</span>
+        <button type="button" id="feedNext" aria-label="Next videos">next →</button>
       </div>
       <div class="platform-links">
         <a href="https://www.youtube.com/@DaniTechDev" target="_blank" rel="noopener">YouTube · @DaniTechDev</a>
@@ -379,6 +356,10 @@
 <footer class="wrap">
   <span>© <span id="year"></span> Daniel Puentes.</span>
 </footer>
+<div id="imageModal" class="modal">
+  <button class="modal-close" onclick="closeModal()">&times;</button>
+  <img class="modal-content" id="modalImg" alt="LocalAgents run">
+</div>
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
   const roleText = "Application Support Analyst & Sysadmin";
@@ -431,6 +412,50 @@
     });
   }, {threshold:0.4});
   bars.forEach(b => barObserver.observe(b));
+  const videos = [
+    { title: "Centinela: Your alerts, passwords, and secrets stay on your phone", url: "https://www.youtube.com/watch?v=a-c9JYs61mQ" },
+    { title: "LoRa Chat Vulnerability Demo: Message Sniffing + Spoofing / Injection Attack (ESP32 + TTGO)", url: "https://www.youtube.com/watch?v=ACzMhOtsMYQ" },
+    { title: "Hacking WiFi Networks", url: "https://www.youtube.com/watch?v=HAm7Psr3sTk" },
+    { title: "Sniffing Aircraft Signals with RTL‑SDR", url: "https://www.youtube.com/watch?v=TJnP0xROCms" },
+    { title: "Voting System in C# with SQL Server", url: "https://www.youtube.com/watch?v=w6YWT95cV6w" },
+    { title: "Live Chat Without an Internet Connection Using ESP 32 and LoRa (RA-02)", url: "https://youtu.be/hLj4imr6CqA" }
+  ];
+  const perPage = 3;
+  let page = 0;
+  const feed = document.getElementById('videoFeed');
+  const pageLabel = document.getElementById('feedPage');
+  const prevBtn = document.getElementById('feedPrev');
+  const nextBtn = document.getElementById('feedNext');
+  const pageCount = Math.max(1, Math.ceil(videos.length / perPage));
+  function renderFeed(){
+    const start = page * perPage;
+    const slice = videos.slice(start, start + perPage);
+    feed.innerHTML = slice.map(function(video){
+      return '<div class="feed-row">' +
+        '<span class="ch mono">YOUTUBE</span>' +
+        '<h3>' + video.title + '</h3>' +
+        '<a class="watch" href="' + video.url + '" target="_blank" rel="noopener">watch video →</a>' +
+      '</div>';
+    }).join('');
+    pageLabel.textContent = (page + 1) + ' / ' + pageCount;
+    prevBtn.disabled = page === 0;
+    nextBtn.disabled = page >= pageCount - 1;
+  }
+  prevBtn.addEventListener('click', function(){ if(page > 0){ page--; renderFeed(); } });
+  nextBtn.addEventListener('click', function(){ if(page < pageCount - 1){ page++; renderFeed(); } });
+  renderFeed();
+  function openModal(src) {
+    const modal = document.getElementById('imageModal');
+    const img = document.getElementById('modalImg');
+    img.src = src;
+    modal.classList.add('active');
+  }
+  function closeModal() {
+    document.getElementById('imageModal').classList.remove('active');
+  }
+  document.getElementById('imageModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
 </script>
 </body>
 </html>
