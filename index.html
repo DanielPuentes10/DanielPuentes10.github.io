@@ -3,7 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daniel Puentes — Application Support Analyst / Sysadmin</title>
+<title>Daniel Puentes — Application Support Analyst | PowerShell Automation & SRE Practices</title>
+<meta name="description" content="Application Support Analyst focused on Windows automation, structured logging, dry-run operations, and SQL Server troubleshooting. Builder of LocalAgents — a daily support suite with severity-based exit codes and scheduled tasks.">
+<meta property="og:title" content="Daniel Puentes — Support & SRE-focused Automation">
+<meta property="og:description" content="PowerShell automation for Windows 11 support and SRE workflows. LocalAgents, SQL Server labs, and operational documentation.">
+<meta property="og:url" content="https://danielpuentes10.github.io/">
+<meta property="og:type" content="website">
 <meta name="description" content="I troubleshoot enterprise application incidents across application, database, and infrastructure layers. With 2.5 years of experience supporting environments serving approximately 300 users, I investigate root causes, resolve SQL Server issues, troubleshoot C#/.NET applications, and monitor application performance using AWS CloudWatch.
 
 My experience includes Jira-based incident management, IIS troubleshooting, PowerShell, Windows Server administration, and supporting changes through Testing, Staging, and Production environments.
@@ -456,13 +461,26 @@ Core strengths: Incident Resolution · Root-Cause Analysis · SQL Server Trouble
 
   /* ---------- PROJECTS ---------- */
 
-  .projects{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:1px;
-    background:var(--line);
-    border:1px solid var(--line);
+  /* ---------- PROJECTS ---------- */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+@media (max-width: 980px) {
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
   }
+}
+
+@media (max-width: 640px) {
+  .projects {
+    grid-template-columns: 1fr;
+  }
+}
 
   @media (max-width:720px){.projects{grid-template-columns:1fr;}}
 
@@ -668,6 +686,7 @@ Core strengths: Incident Resolution · Root-Cause Analysis · SQL Server Trouble
   /* reveal on scroll: single subtle, user-triggered-by-scroll utility, used sparingly */
   .reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease, transform .6s ease;}
   .reveal.in{opacity:1;transform:translateY(0);}
+  
 
 </style>
 </head>
@@ -837,11 +856,23 @@ Core strengths: Incident Resolution · Root-Cause Analysis · SQL Server Trouble
   </div>
   <div class="wrap" style="padding:0 28px;">
     <div class="projects">
-      <div class="project">
-        <div class="ptag mono">PowerShell</div>
+     <div class="project">
+        <div class="ptag mono">PowerShell · SRE / Support</div>
         <h3>LocalAgents — Windows 11 Automation Suite</h3>
-        <p>Local operations suite for Windows 11 written in PowerShell 5.1. Covers disk health, temporary cleanup, system health reporting, Windows Update checks, daily optimization, and support bundle generation. Demonstrates structured logging, dry-run by default, severity-based exit codes, and scheduled tasks for support and SRE work.</p>
+        <p>Local operations suite for Windows 11 (PowerShell 5.1). Covers disk health, temporary cleanup, system health, Windows Update, daily optimization, and support bundles. Structured JSON logging, dry-run by default, severity-based exit codes (0/1/2), and Task Scheduler integration. Reduced daily manual review from ~12 min to under 40 s in dry-run mode.</p>
+      
+        <div style="margin:14px 0 10px;font-size:12px;color:var(--accent);letter-spacing:0.04em;">SRE / Support focused</div>
+      
+        <img src="images/localagents-run.png" alt="SystemHealthReport dry-run showing Warning status and exit code 1" style="width:100%;border:1px solid var(--line);border-radius:4px;margin:8px 0 12px;">
+      
+        <p style="font-size:13px;color:var(--text-dim);margin:0 0 14px;">
+          Real dry-run of <code>SystemHealthReport.ps1 -EventHours 48</code>.  
+          Exit code <b>1</b> (Warning). No Critical findings.  
+          <code>NlaSvc</code> correctly classified as Warning. JSON report and JSONL log written with <code>runId</code>.
+        </p>
+      
         <a class="plink" href="https://github.com/DanielPuentes10/windows-local-agents" target="_blank" rel="noopener">View repository</a>
+        <a class="plink" href="https://github.com/DanielPuentes10/windows-local-agents#execution-evidence" target="_blank" rel="noopener" style="margin-left:16px;">View operational README</a>
       </div>
 
       <div class="project">
